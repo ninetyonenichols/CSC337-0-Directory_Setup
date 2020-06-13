@@ -3,6 +3,15 @@
 # creates the basic files / directories needed for a CSC337 (Web Development)
 # 	 project
 
+# Adds headers to new files
+add_header() {
+cat>>$1<<EOF
+$2
+$3
+$4
+EOF
+}
+
 webdev=..
 project=$1
 pd="$webdev/$project"
@@ -19,21 +28,9 @@ Class: CSC337 (Web Development)
 Purpose:
 EOF
 
-cat>>index.html<<EOF
-<!--
-$header
--->
-EOF
-
-cat>>css/style.css<<EOF
-/*
-$header
-*/
-EOF
-
-cat>>README.md<<EOF
-$header
-EOF
+add_header index.html "<!--" "$header" "-->"
+add_header css/style.css "/*" "$header" "*/"
+add_header README.md "" "$header" ""
 
 # Git 
 git init
