@@ -1,15 +1,16 @@
 # creates the basic files / directories needed for a CSC337 (Web Development)
 # 	 project
 
+# Moving to webdev folder, which contains all projects
+cd ..
+
 # Making directories
-mkdir public_html
-cd public_html
-mkdir img
-mkdir css
+mkdir test_project test_project/public_html
+cd test_project/public_html
+mkdir img css
 
 # Making files
-touch README.htlm
-touch index.html
+touch README.html index.html
 
 # Git 
 git init
