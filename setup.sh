@@ -2,12 +2,14 @@
 # 	 project
 
 # Moving to webdev folder, which contains all projects
-cd ..
+webdev=..
+project=$1
+pd="$webdev/$project"
 
 # Making directories
-mkdir test_project test_project/public_html
-cd test_project/public_html
-mkdir img css
+mkdir $pd "$pd/public_html"
+cd "$pd/public_html"
+mkdir img css js
 
 # Making files
 touch README.html index.html
