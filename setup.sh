@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # creates the basic files / directories needed for a CSC337 (Web Development)
 # 	 project
 
@@ -12,6 +13,23 @@ $4
 EOF
 }
 
+add_basic_html() {
+cat>>$1<<EOF
+
+<html lang=en-US>
+    <head>
+        <title></title>    
+        <meta charset="UTF-8">
+        <meta name="author" content="Justin Nichols">
+        <link rel=stylesheet href="css/.css">
+    </head>
+    <body>
+
+    </body>
+</html>
+EOF
+}
+
 webdev=..
 project=$1
 pd="$webdev/$project"
@@ -19,7 +37,7 @@ pd="$webdev/$project"
 # Making directories
 mkdir $pd "$pd/public_html"
 cd "$pd/public_html"
-mkdir img css js
+mkdir img css #js
 
 # Initializing files 
 read -rd '' header << 'EOF'
@@ -32,7 +50,10 @@ add_header index.html "<!--" "$header" "-->"
 add_header css/style.css "/*" "$header" "*/"
 add_header README.md "" "$header" ""
 
+add_basic_html index.html
+
 # Git 
+cd ..
 git init
 git add .
 git commit -m "Created placeholder files / directories."
