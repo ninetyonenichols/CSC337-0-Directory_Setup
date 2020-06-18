@@ -21,12 +21,29 @@ cat>>$1<<EOF
         <title></title>    
         <meta charset="UTF-8">
         <meta name="author" content="Justin Nichols">
-        <link rel=stylesheet href="css/.css">
+        <link rel=stylesheet href="css/style.css">
     </head>
     <body>
+        <header>
 
+        </header>
+        <div id="content">
+
+        </div>
+        <footer>
+
+        </footer>
     </body>
 </html>
+EOF
+}
+
+add_basic_css() {
+cat>>$1<<EOF
+
+#content {
+
+}
 EOF
 }
 
@@ -51,6 +68,7 @@ add_header css/style.css "/*" "$header" "*/"
 add_header README.md "" "$header" ""
 
 add_basic_html index.html
+add_basic_css css/style.css
 
 # Git 
 cd ..
